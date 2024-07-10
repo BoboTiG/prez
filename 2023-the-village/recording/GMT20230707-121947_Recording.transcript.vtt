@@ -1,0 +1,862 @@
+WEBVTT
+
+1
+00:00:00.040 --> 00:00:13.250
+Ben Matthes: Connect to cloud server. So it is recording.
+
+2
+00:00:14.930 --> 00:00:24.100
+Pierre-Gildas: So you can even take control. So you can switch and have some kind of a pointer as you were.
+
+3
+00:00:30.500 --> 00:00:32.780
+Mickaël Schoentgen: Yeah. Requests up
+
+4
+00:00:32.830 --> 00:00:37.320
+Ben Matthes: from all yours.
+
+5
+00:00:38.160 --> 00:00:40.670
+Mickaël Schoentgen: Okay, fine. So
+
+6
+00:00:40.880 --> 00:01:02.280
+Mickaël Schoentgen: I think. Only Pg is aware of that because we met last time in Paris, but with my family we move to a let's call it a village. It just it's not a actually a village, just a a few how a houses at the same place, because you wanted to to move with the whole family.
+
+7
+00:01:02.350 --> 00:01:04.379
+Mickaël Schoentgen: So for
+
+8
+00:01:04.580 --> 00:01:11.980
+Mickaël Schoentgen: for the fun, we call this the the village, and we are going with 25 slides, the founders. So let's go.
+
+9
+00:01:18.330 --> 00:01:19.300
+Ben Matthes: How does it work?
+
+10
+00:01:19.530 --> 00:01:22.500
+Mickaël Schoentgen: no.
+
+11
+00:01:23.660 --> 00:01:42.710
+Mickaël Schoentgen: Oh, okay, okay. So the project. It's an idea from my that since decades it's a real whole idea to to have the the whole zoom direct my family so, and we are not talking about the cuisine, but just he's parents and his sons
+
+12
+00:01:43.840 --> 00:01:54.380
+Mickaël Schoentgen: And so we wanted to have that, because for 2 Avenue uniform is that the family? And for the like for you till season, it's always good to have them to to.
+
+13
+00:01:55.750 --> 00:02:05.100
+Mickaël Schoentgen: We read a lot of about that that The education in family is better for children, so it will. It will be. It's it's actually a good thing.
+
+14
+00:02:05.490 --> 00:02:13.040
+Mickaël Schoentgen: and also to be big enough to like a garden, and so on to be self-sufficient.
+
+15
+00:02:14.770 --> 00:02:18.960
+Mickaël Schoentgen:  And the last thing was
+
+16
+00:02:19.520 --> 00:02:33.480
+Mickaël Schoentgen: We could have thought for some big house. Let's say, Leonard. Well, that we can't if he did it alone on our on our own side. Sorry. So we had a a beautiful
+
+17
+00:02:33.640 --> 00:02:56.780
+Mickaël Schoentgen: thing at the end. That's if we if we we look at each family the amount of a few rules you have to to to pay every month. It's like less expensive. But then f 2 in Paris, so like that, you have a small comparison. It's not a big big deal when you use P. The the bill?
+
+18
+00:02:57.860 --> 00:03:15.159
+Mickaël Schoentgen: And we started to to look for real for such a houses like a 6 years ago, and it took us 4 years to to find exactly what he wanted. So it was a painful process and a long process.
+
+19
+00:03:15.420 --> 00:03:30.999
+Mickaël Schoentgen: because, because of different families different different constraints. So in the constraint we first, everybody needs it to be okay, to come obviously. And
+
+20
+00:03:31.070 --> 00:03:38.280
+Mickaël Schoentgen: for instance, it wasn't the case with my wife, she at the beginning. She didn't want to to do that.
+
+21
+00:03:38.400 --> 00:03:42.310
+Mickaël Schoentgen: So After a lot of tools and
+
+22
+00:03:42.440 --> 00:03:56.919
+Mickaël Schoentgen: and exploring the possibilities, she took a one year sabatical, and we have a possibility to come back to our job as soon as possible. So it was like a parachute for him for her.
+
+23
+00:03:58.860 --> 00:04:03.190
+Mickaël Schoentgen:  sorry just main. Not that
+
+24
+00:04:03.540 --> 00:04:04.470
+Mickaël Schoentgen: killed.
+
+25
+00:04:08.860 --> 00:04:09.590
+Hmm.
+
+26
+00:04:15.870 --> 00:04:18.660
+Mickaël Schoentgen: yeah. I address them to restart my my notes
+
+27
+00:04:19.160 --> 00:04:48.940
+Mickaël Schoentgen: so yes, and before. After a lot of talks she decided to come and let's say it was quick up for her for about 4 or 3 months, and after that she she she had. She took a job, or she started to meet friends, and so on, and it was better and better. And if we compare to now when she gets back and goes back to, she should go back to to our family in in the north east of refunds.
+
+28
+00:04:49.120 --> 00:04:54.320
+Mickaël Schoentgen: she's like one day, it's okay. This again, when she want to to come back here. So
+
+29
+00:04:54.560 --> 00:04:59.299
+Mickaël Schoentgen: it was a big step for her. And but at the end. It's okay for everyone, and
+
+30
+00:04:59.550 --> 00:05:02.269
+Mickaël Schoentgen: and it's good for for for the whole family.
+
+31
+00:05:04.300 --> 00:05:08.830
+Mickaël Schoentgen: just looking at my not sorry. I need to to open it.
+
+32
+00:05:10.930 --> 00:05:21.619
+Mickaël Schoentgen: So in the, in the what we needed, we need something in France, we in the one region because we were in the North East. It's not a cold region, but it's
+
+33
+00:05:22.210 --> 00:05:36.060
+Mickaël Schoentgen: I don't like the weather, so we need to. We want it to go back in the south of France, and if I may. we don't. We didn't want to be in the last full of the world. If I'm not sure we can translate that in a English, but you get it
+
+34
+00:05:36.070 --> 00:05:48.980
+Mickaël Schoentgen: So we needed to to have markets, and not too far from the the users and the for each house. We didn't want to be the
+
+35
+00:05:48.990 --> 00:05:51.560
+Mickaël Schoentgen: to close to from each other.
+
+36
+00:05:53.130 --> 00:06:01.660
+Mickaël Schoentgen: Oh, okay, thank you, France. So we needed the An at at least a small spaces between houses.
+
+37
+00:06:01.710 --> 00:06:19.909
+Mickaël Schoentgen: and that was maybe the most difficult to to met. And the at the end, the the issue. It's not a potential issue. It was a big issue was very the the loan, Berlin, because we try to. We contacted
+
+38
+00:06:19.970 --> 00:06:22.210
+Mickaël Schoentgen: like 20 banks.
+
+39
+00:06:22.250 --> 00:06:27.130
+Mickaël Schoentgen: And we even contacted the same bunks. But in different regions.
+
+40
+00:06:27.280 --> 00:06:37.959
+Mickaël Schoentgen: and the the response was always the same. We have a 2 complex project it won't work, and nobody will.
+
+41
+00:06:38.610 --> 00:06:52.640
+Mickaël Schoentgen: and yes, and most nobody Almost nobody wanted to do that. But At the end, in the same village where we wanted to go, there was a small bunk, and there was a monk.
+
+42
+00:06:52.880 --> 00:07:00.100
+Mickaël Schoentgen: He's terrible, very, very terrible. I think he doesn't know his job, but it was
+
+43
+00:07:00.610 --> 00:07:11.880
+Mickaël Schoentgen: I like, because, thanks to him and the all the the work that did for him.
+
+44
+00:07:12.280 --> 00:07:19.440
+Mickaël Schoentgen: It's a good thing, but it's horrible to to have to deal with such people. So so that's it.
+
+45
+00:07:19.800 --> 00:07:24.440
+Mickaël Schoentgen:  let's go to the next slide.
+
+46
+00:07:25.570 --> 00:07:32.840
+Mickaël Schoentgen: So we are almost full that it's a little joke, because,
+
+47
+00:07:32.860 --> 00:07:41.920
+Mickaël Schoentgen: actually, we have like 5 families. There is a my grandma, my parents my 2 brothers, myself, with my family and
+
+48
+00:07:42.070 --> 00:07:59.740
+Mickaël Schoentgen: it is that my grandma, as Alzheimer's. So she is there we are being there. So so I the the half. But it's small, and we came from the north east of the funds. You can see the minions on the top flights, and the very that was when
+
+49
+00:07:59.780 --> 00:08:05.400
+Mickaël Schoentgen: my
+
+50
+00:08:05.430 --> 00:08:20.729
+Mickaël Schoentgen: met as we target it's in. So it's the one that country. I didn't know that but it's cool the and walnuts everywhere they are. They have a
+
+51
+00:08:21.780 --> 00:08:29.520
+Mickaël Schoentgen: and I'm coming to that front. Yeah, a lot of, and the wine will not
+
+52
+00:08:30.270 --> 00:08:36.990
+Mickaël Schoentgen: like there is only one before in it. So if you don't like, we not don't come.
+
+53
+00:08:38.039 --> 00:08:57.949
+Mickaël Schoentgen: it's it's a beautiful region, and we found the what we wanted in a small village. But but Just what we need, the 2 supermarkets and all the Baker pharmacy school for the kids. So we are just in the middle of what we needed.
+
+54
+00:08:59.940 --> 00:09:06.430
+Mickaël Schoentgen: Let's see a schema of the of a village. It's good. It's like that.
+
+55
+00:09:07.510 --> 00:09:13.030
+Mickaël Schoentgen: So it's a screen capture from a open street map.
+
+56
+00:09:15.520 --> 00:09:31.360
+Mickaël Schoentgen: In in Europe you can see the different houses. So it's not clear on the like that. But each house is separated. It's clearly a free houses on the list, for instance, it's clearly free of this supported
+
+57
+00:09:31.370 --> 00:09:32.580
+Mickaël Schoentgen: and
+
+58
+00:09:32.800 --> 00:09:44.890
+Mickaël Schoentgen: and what it is interesting. It's the the blue lines here. It's a river. We have the same name. It's named the Kuz and the the Big the big blue
+
+59
+00:09:44.970 --> 00:10:01.149
+Mickaël Schoentgen: the blue rectangle. We it's called a 4 B in French. It's a Bf, and we use it at the time, like. in the last century it was used to to control the river level.
+
+60
+00:10:02.270 --> 00:10:04.050
+Mickaël Schoentgen: and it's
+
+61
+00:10:04.550 --> 00:10:24.969
+Mickaël Schoentgen: and so it we can see the river is going under one of the out of 2 houses, and it's it's because that big from the the building. Here was a meal at the end at the at the beginning, and it was even a meal and a cannon for so I will
+
+62
+00:10:24.980 --> 00:10:35.030
+Mickaël Schoentgen: talk about it right after that. You. You see the the river going under, and we will seeing the pictures later, so that it will be cleaner for you.
+
+63
+00:10:35.140 --> 00:10:39.100
+Mickaël Schoentgen: and we have a several dependencies like
+
+64
+00:10:40.070 --> 00:10:41.250
+Mickaël Schoentgen: pigeons.
+
+65
+00:10:41.320 --> 00:10:45.769
+Mickaël Schoentgen: I'm not sure about the transition with the pool
+
+66
+00:10:46.030 --> 00:10:52.959
+Mickaël Schoentgen: and some some of our at the top. It's a handhouse the app
+
+67
+00:10:53.980 --> 00:10:57.140
+Mickaël Schoentgen: I was for in yeah. And I was. So yeah.
+
+68
+00:10:59.030 --> 00:11:00.180
+Mickaël Schoentgen: let's see.
+
+69
+00:11:01.480 --> 00:11:03.300
+Mickaël Schoentgen: I I just go back.
+
+70
+00:11:04.110 --> 00:11:27.820
+Mickaël Schoentgen:  So what this is interesting about the the forbay is that it's almost never dry. There is a legend talking about. It should be dry at least one only one time in a century. The bad thing is that the last time he was a dry he was like 70 years ago, so I think I will met.
+
+71
+00:11:27.990 --> 00:11:36.770
+Mickaël Schoentgen: but the the time it should it will be dry. But I let's see if we have a can make change if it's change something.
+
+72
+00:11:36.900 --> 00:11:46.329
+Mickaël Schoentgen: But yeah, having that but lake, the small lake is insane because you have a lot of animals and flowers.
+
+73
+00:11:48.480 --> 00:11:54.809
+Mickaël Schoentgen: and you will see the photos. It's green everywhere, and it's exactly what we? We need it. We need to green. So yeah.
+
+74
+00:11:55.680 --> 00:12:09.279
+Mickaël Schoentgen: so let's talk about the story of the of the village. so it used to be a cannon for initiated by a louis 14, also known as the King
+
+75
+00:12:09.500 --> 00:12:11.030
+Mickaël Schoentgen: Kingston.
+
+76
+00:12:11.370 --> 00:12:29.830
+Mickaël Schoentgen: And you have. This official was from in 1,901, and as you can see, a pictures on the right there is a signature from the architect from 1,684. So it's not officially a start of the building. But is the first piece we have.
+
+77
+00:12:30.670 --> 00:12:42.019
+Mickaël Schoentgen: and we're in. The interesting facts is that the vermilion was burned and rebooted at least twice. And the last time is why Israel is during the Second World life, World War
+
+78
+00:12:42.400 --> 00:12:44.929
+Mickaël Schoentgen: and This story is
+
+79
+00:12:45.730 --> 00:13:01.859
+Mickaël Schoentgen: that if I can. Is that when the German will here in the region there was a group of resistance. Let's call them in if I can. And at some point they wanted to.
+
+80
+00:13:02.240 --> 00:13:07.939
+Mickaël Schoentgen: yeah, to, to to make waves. So they killed the 7 German soldiers
+
+81
+00:13:07.970 --> 00:13:35.650
+Mickaël Schoentgen: and the chief of the of that. The German 6 section wanted to to make it clear for you. One, everyone to you can't do that. But nobody should touch any one with with German. So they pick randomly 7 forms, and in the phones there was the my house, my contacts, and they they burn it completely with the people inside it. So
+
+82
+00:13:35.840 --> 00:13:48.929
+Mickaël Schoentgen: it's horrible. But inside that horrible story In front of the middle, so my need both There was. There was also a a phone ticket for the bell.
+
+83
+00:13:49.400 --> 00:14:05.059
+Mickaël Schoentgen: and the chief started to to burn it. But it he He concealed it when he. With that they tried to to, to, to, to, to, to, to to master the the fire, because there was a child in it, and so which I
+
+84
+00:14:06.070 --> 00:14:18.619
+Mickaël Schoentgen: clearly they are. No, no, no, we can't say that German or not, if it's it was a it a war of time. So a time off. So we can't compare, of course. But yeah, the
+
+85
+00:14:18.680 --> 00:14:29.729
+Mickaël Schoentgen: at the end. They which is saved a child and that child still live, and it's mine. They both currently she it's a now all the she's a old grandma.
+
+86
+00:14:29.800 --> 00:14:34.750
+Mickaël Schoentgen: And it's from there from her that I get the the the full story.
+
+87
+00:14:35.640 --> 00:14:51.740
+Mickaël Schoentgen: Yeah, she's almost 100. She doesn't. yes, but but that that minded board my netball was lucky. But they burned all over our people in. So yeah.
+
+88
+00:14:51.810 --> 00:15:00.560
+Mickaël Schoentgen: that's why we can't. we can't say something like that. Yes, it was trend trend at the time
+
+89
+00:15:01.940 --> 00:15:04.180
+Mickaël Schoentgen: soon next.
+
+90
+00:15:11.800 --> 00:15:18.959
+Mickaël Schoentgen: So let's have a let's do a quick tour, so I will come on the coming in photos.
+
+91
+00:15:26.330 --> 00:15:29.020
+Mickaël Schoentgen: So here is the
+
+92
+00:15:29.180 --> 00:15:40.380
+Mickaël Schoentgen: As you can see, there is not much distance between the we have a at the end, but it was so complex it's so difficult to find something that will please everyone but
+
+93
+00:15:40.740 --> 00:15:50.190
+Mickaël Schoentgen: We pick it, and at the end it works very, very well, because we all I, Jules, and we know when we don't need to.
+
+94
+00:15:50.780 --> 00:15:53.719
+Mickaël Schoentgen: We know the freedom, the freedom. So.
+
+95
+00:15:54.840 --> 00:16:05.509
+Mickaël Schoentgen: for instance, my mother, we never come here now, but I am doing the presentation. She doesn't. She don't even come here to my house because we need the our space.
+
+96
+00:16:09.250 --> 00:16:13.370
+Mickaël Schoentgen: So on the left you can see when when a house.
+
+97
+00:16:13.930 --> 00:16:28.870
+Mickaël Schoentgen: and then it on the left. There is the past, you. So that's my house, and I know it's not keen, because, you can see, I started to clean the the worry, but I need the some material to finish it, and
+
+98
+00:16:29.110 --> 00:16:42.939
+Mickaël Schoentgen: I don't have it right now. So let's see, let's let's say it's okay like that phone number. It's like your Tiniberg. We we keep you kept you. We keep. it's a technique that that okay?
+
+99
+00:16:43.130 --> 00:16:56.760
+Mickaël Schoentgen: And on the right. So you have the meal exactly the meal, and I will. You will see that in the phone run. You can see below. and we will just talk about it in the next
+
+100
+00:16:57.940 --> 00:16:59.050
+Mickaël Schoentgen: slide.
+
+101
+00:16:59.440 --> 00:17:09.990
+Mickaël Schoentgen: I'm sorry it's so terrible, and the graphics are so the ribbon. But yeah, we we call it the the No king below, like in a Harry Potter. It's a
+
+102
+00:17:11.450 --> 00:17:23.820
+Mickaël Schoentgen: it has a terrible character, so we don't. You can't just stay at the near to him, because you will be he, but it's not to be. It's a platinum
+
+103
+00:17:24.010 --> 00:17:25.010
+Mickaël Schoentgen: there you.
+
+104
+00:17:29.900 --> 00:17:38.419
+Mickaël Schoentgen: So let's I will look at the first I was. It's a I was that was on the left at them. Trans, and it's mine. Sorry I get.
+
+105
+00:17:39.250 --> 00:17:42.510
+Mickaël Schoentgen: I need to go back. Yeah, when time.
+
+106
+00:17:48.340 --> 00:18:11.070
+Mickaël Schoentgen: So yeah, I really like the the different colors. So, and what we don't, we don't see it is that when I woke up in front of me I have a river and a conflict. So that's just paradise for me, because I don't have a cars everywhere on the the pollution and so on. I really I really like I needed the green. So that's exactly what I need.
+
+107
+00:18:12.420 --> 00:18:17.379
+Mickaël Schoentgen: If we have a look on the right advance right before the the
+
+108
+00:18:20.130 --> 00:18:32.000
+Mickaël Schoentgen: Now that I see that picture, it's since I wanted to show the W. But it's a terrible picture. But you can see a free houses here, the first one on the foreground.
+
+109
+00:18:33.160 --> 00:18:41.850
+Mickaël Schoentgen: Yeah. But there is a video when later, yeah. And the tree is pretty nice
+
+110
+00:18:41.930 --> 00:18:59.500
+Mickaël Schoentgen: it's a big tree, and he's like 30 meters high. But he was He was break on the big storm on the 99 for French guy. it should remind something to you. It was a very, very
+
+111
+00:19:00.730 --> 00:19:04.470
+Mickaël Schoentgen: It's hard to give a an age to.
+
+112
+00:19:05.600 --> 00:19:22.070
+Mickaël Schoentgen: Honestly, I don't know. It's a very. It's a very big one. It's bigger than what we can see in the picture of it. Yeah. I have a someone specialized in the in which entries that will come and I will. I I can ask the question, because it's an interesting to to know.
+
+113
+00:19:22.220 --> 00:19:35.409
+Mickaël Schoentgen: So yes, right on the floor you can see the first house next to the meal, and in the in on the right. You you have another one. We will just focus on that one next.
+
+114
+00:19:41.070 --> 00:20:00.179
+Mickaël Schoentgen: So here for now it's I would say, just a studio. It's for my Loma. She has just what she needs. And you can see the big of all on the right. it's where the the river come through. So you will see. You will see another photo from the over side. And yeah.
+
+115
+00:20:00.410 --> 00:20:07.870
+Mickaël Schoentgen: So you have a very well on the left, on the when you you, you go out of the apartment on the left of the river and
+
+116
+00:20:08.100 --> 00:20:13.640
+Mickaël Schoentgen: and the water. It's it's quite nice. Yeah, thanks.
+
+117
+00:20:18.980 --> 00:20:23.010
+Mickaël Schoentgen: So let's go to the over side of that building.
+
+118
+00:20:23.750 --> 00:20:25.440
+Mickaël Schoentgen: If
+
+119
+00:20:25.530 --> 00:20:33.170
+Mickaël Schoentgen: just my connection is to to slow. So I have as a a small okay, so here is the
+
+120
+00:20:34.250 --> 00:20:35.880
+Mickaël Schoentgen: Sorry you come back.
+
+121
+00:20:44.060 --> 00:20:45.809
+Mickaël Schoentgen: So it is the meal.
+
+122
+00:20:45.980 --> 00:21:03.470
+Mickaël Schoentgen: Yes, which is the meal, and we are looking at this is the master, please? Clearly, because it's so beautiful. I love it so you can see both houses linked by a a room, so that home is common for now, and we will see out if you need to, if you want to, to split it properly.
+
+123
+00:21:04.340 --> 00:21:07.730
+Mickaël Schoentgen: and you can see on the left, a part of the 4 bay
+
+124
+00:21:07.960 --> 00:21:17.529
+Mickaël Schoentgen: and the the the the, the, the, the, the, the, the the the the the the the the, the, the the the the the the, the, the, the, the, the the the the the the the the the the the the the the the the the water come through the opposite side.
+
+125
+00:21:17.650 --> 00:21:25.569
+Mickaël Schoentgen: and the I'm not sure you see what is on under my Make yourself. It's
+
+126
+00:21:25.900 --> 00:21:27.309
+Mickaël Schoentgen: I have to say that
+
+127
+00:21:27.840 --> 00:21:44.260
+Mickaël Schoentgen: in French. If you translate it, it's a shovel, but I don't think we should. It's like, it's a very well, yeah, so you can control from there and from the other side of the forbid. You have 2 valves to control the the level of the water.
+
+128
+00:21:44.640 --> 00:21:46.150
+Mickaël Schoentgen: And
+
+129
+00:21:46.750 --> 00:21:55.530
+Mickaël Schoentgen: it's interesting when you have a like medium fruiting it because it happens so it can happen. And you can control a
+
+130
+00:21:55.670 --> 00:22:02.649
+Mickaël Schoentgen: put on shell issues by just opening the the and the what you just come through.
+
+131
+00:22:03.250 --> 00:22:18.930
+Mickaël Schoentgen: But as we saw, I don't have a picture from now, but we had like a medium precise fooding like in Santa Claus like you, Santa Claus holidays. And you have a
+
+132
+00:22:19.600 --> 00:22:24.269
+Mickaël Schoentgen: it was yeah, water everywhere that, but not in the obviously. So that's good.
+
+133
+00:22:27.260 --> 00:22:34.170
+Mickaël Schoentgen: If we just turn around by some 150 degrees. We have that. See
+
+134
+00:22:35.200 --> 00:22:36.640
+Mickaël Schoentgen: that you sorry.
+
+135
+00:22:37.890 --> 00:22:46.710
+Mickaël Schoentgen: So the but the picture was taken like a in a whenever ago. So you have a it's like a real time
+
+136
+00:22:50.350 --> 00:22:51.900
+Mickaël Schoentgen: So
+
+137
+00:22:52.220 --> 00:23:06.529
+Mickaël Schoentgen:  for the context, what we saw on the left. It's a pigeon house, and for now we now we are using, and it's like a studio and a a T r for the pool. We'll see that later.
+
+138
+00:23:07.120 --> 00:23:08.779
+Mickaël Schoentgen: and we try to.
+
+139
+00:23:08.860 --> 00:23:12.429
+We planted a lot of fruits, trees
+
+140
+00:23:12.590 --> 00:23:24.440
+Mickaël Schoentgen: like a pitchies, and up records. And Kiwi. I'm not sure we said to you in English, maybe so. Yeah, in several years that view would be quite different.
+
+141
+00:23:30.800 --> 00:23:33.310
+Mickaël Schoentgen: it's a
+
+142
+00:23:34.750 --> 00:23:35.650
+Mickaël Schoentgen: hey, Jim.
+
+143
+00:23:36.750 --> 00:23:43.049
+Pierre-Gildas: I just love it the way you see it. Oh, it's a small tear us for the pool. Yeah.
+
+144
+00:23:43.220 --> 00:23:55.429
+Mickaël Schoentgen: I don't want that to to be like that, because it's not something you follow reaches. Yeah. As I said at the beginning, I wanted to know, to say that alone. I won't be able.
+
+145
+00:23:55.480 --> 00:24:09.809
+Mickaël Schoentgen: It was. I won't be able to to afford for such a domain. But yes, if, as it's like divided by 5, it's way cheaper for one. So yeah. But yes, I I it's really beautiful and like crazy.
+
+146
+00:24:14.840 --> 00:24:24.350
+Mickaël Schoentgen: So here we have a look at the pool from yesterday, and on the right you can see a banana trees. So hopefully there' be
+
+147
+00:24:26.360 --> 00:24:30.610
+Mickaël Schoentgen: hopefully very be a banana. But
+
+148
+00:24:30.820 --> 00:24:46.979
+Mickaël Schoentgen: from what I heard the river is not good enough, so it's just be. It just will be stay like that, like a exotic trees. So let's say in the future, if it changes of I would I would. I would really like to have bananas, of course.
+
+149
+00:24:48.000 --> 00:24:51.280
+Mickaël Schoentgen: Yes, we should let me change. I am in. I might have one.
+
+150
+00:24:51.320 --> 00:24:58.810
+Mickaël Schoentgen: Let's see. So yeah, it's a. It's for a small term for the full. Sorry it's it's a big quality. And
+
+151
+00:25:03.370 --> 00:25:05.380
+Mickaël Schoentgen: so if you continue
+
+152
+00:25:05.490 --> 00:25:13.580
+Mickaël Schoentgen: to work just here we have the the pool behind us. And this is the garden. So
+
+153
+00:25:14.440 --> 00:25:18.149
+Mickaël Schoentgen: thanks debugging so we have.
+
+154
+00:25:18.160 --> 00:25:22.969
+it's the garden. So the the picture is not quite relevant, because,
+
+155
+00:25:23.060 --> 00:25:42.769
+Mickaël Schoentgen: it should be way mocking. Let's say, let's basically that. But yeah, at least we have. We have. We have a we have some sufficient salads, tomatoes, potatoes, zuki, zucchini strawberries, raspberries, and so on. So that's really cool you just that. I would don't imagine.
+
+156
+00:25:43.040 --> 00:25:45.300
+Mickaël Schoentgen: Oh, I work
+
+157
+00:25:45.670 --> 00:25:47.960
+Mickaël Schoentgen: it it requires, because
+
+158
+00:25:48.010 --> 00:25:53.229
+Mickaël Schoentgen: for it, so much time in it in several people. So
+
+159
+00:25:53.270 --> 00:26:05.439
+Mickaël Schoentgen: so I I'm not complaining just that. I didn't know that before that. But at the end. We can eat our on our own food. So that's magical. So
+
+160
+00:26:05.490 --> 00:26:14.940
+Mickaël Schoentgen: and in the background we get we, you can see the the in-house. Let's see that in detail.
+
+161
+00:26:18.390 --> 00:26:32.620
+Mickaël Schoentgen: So I present to you the A, not all from sick homemade mobile, I and house my favorite did it. it's insane. And so, yeah, yeah, and you know
+
+162
+00:26:32.680 --> 00:26:37.210
+Mickaël Schoentgen: what it is. they, it seems like,
+
+163
+00:26:38.610 --> 00:26:51.299
+Mickaël Schoentgen: up the I think they are. P. Given the number of eggs we have every day. It's like a 20 to 30 eggs every day, so we need to eat a lot of cakes and and eggs. It's a it's cool.
+
+164
+00:26:52.080 --> 00:26:57.869
+Mickaël Schoentgen: and on the left there is a temporary smaller cage, and you will know
+
+165
+00:26:57.970 --> 00:27:05.589
+Mickaël Schoentgen: in the second why. it's because we had our first Chick. I finally.
+
+166
+00:27:06.200 --> 00:27:13.309
+Mickaël Schoentgen: and his name is Cute, because my son thinks it's cute. So his name he name is like
+
+167
+00:27:13.530 --> 00:27:19.050
+Mickaël Schoentgen: like he's like you. So I, you show her his shoes.
+
+168
+00:27:20.290 --> 00:27:26.679
+Mickaël Schoentgen: And the lastly it was this is our next and last project. So
+
+169
+00:27:28.190 --> 00:27:54.260
+Mickaël Schoentgen: yeah, here's an yeah for pool pools. So here is like our last project. It was a tough one, because we did it. we did it. It's a manually my brothers and myself. It's like a 6 meters a large on a fall, and it's deep by 1 one meter, and
+
+170
+00:27:54.260 --> 00:28:08.110
+Mickaël Schoentgen: it was a hell of a of a job, and we did it like in a 2 to 4 days from the morning to the end of the day we were completely out. But yeah.
+
+171
+00:28:08.380 --> 00:28:15.290
+Mickaël Schoentgen: I think the result is motivating. So so, yeah, and we like challenges.
+
+172
+00:28:16.460 --> 00:28:26.769
+Mickaël Schoentgen: What was the even more changing? And here is the state you because it's like I we think it's about 200 kilos.
+
+173
+00:28:26.930 --> 00:28:35.069
+Mickaël Schoentgen: and we needed to to carry it from the meal to here like let's say it's one
+
+174
+00:28:35.170 --> 00:28:43.700
+Mickaël Schoentgen: less than 100 meters better for it. It was a it was insane. We we were completely broken at the end.
+
+175
+00:28:43.860 --> 00:28:52.080
+Mickaël Schoentgen: so I hope it will be. It will stay there, and don't move at all for the next 100 years for the next century.
+
+176
+00:28:52.710 --> 00:29:13.870
+Mickaël Schoentgen: Oh, no, no, no! I have 2 brothers and myself. So we carry it with my father, too. So we will. We have 4. Yeah, because yeah, at 2, it's impossible. We tried it. it's not possible at all, and that's at free. It wasn't possible, and that's for it was a a a headed. So
+
+177
+00:29:14.590 --> 00:29:21.889
+Mickaël Schoentgen: so we did it. But yes, it's quite an adventure just to to have a status in them in their.
+
+178
+00:29:22.210 --> 00:29:38.319
+Mickaël Schoentgen: But yeah, I really like the the finance. So we just we bet the core is inside the the water, and hopefully the nature will do the rest. So be for frogs, and so on. So let's see, in a 6 months or one year
+
+179
+00:29:38.480 --> 00:29:42.040
+Mickaël Schoentgen: I can share a picture if you want later.
+
+180
+00:29:45.210 --> 00:30:01.509
+Mickaël Schoentgen: yeah, let's have a look there. There won't be an too much feature, because it's already a lot of features. So I just want to show a few flowers and animals flowers are from the garden and the we
+
+181
+00:30:01.900 --> 00:30:10.929
+Mickaël Schoentgen: how flowers, if I may, and animals the one from of a a photograph that took pictures on the
+
+182
+00:30:10.960 --> 00:30:18.440
+Mickaël Schoentgen: on the river that is around us. So it's like I would do that. But I don't have a material and the patience to do that.
+
+183
+00:30:20.330 --> 00:30:27.500
+Mickaël Schoentgen: and I'm sorry for the you just copy past it like that. It's horrible. But you have a look
+
+184
+00:30:27.530 --> 00:30:34.220
+Mickaël Schoentgen: and not a you. I really like the one on the right? Because I like it. Yeah, I
+
+185
+00:30:35.000 --> 00:30:42.580
+Mickaël Schoentgen: yeah, from where the particular was in in the whole green background. So yeah, like, that's insane.
+
+186
+00:30:42.740 --> 00:30:48.890
+Mickaël Schoentgen: No, I don't do everything of, indeed, the flowers. It's mostly my mother and the
+
+187
+00:30:49.350 --> 00:30:58.889
+Mickaël Schoentgen: I'm not sure I act. Maybe I at one time, so I can't. yeah, it's the whole family. Yeah. For instance, I'm more like,
+
+188
+00:30:59.380 --> 00:31:01.750
+Mickaël Schoentgen: yeah, I am. I'm doing the
+
+189
+00:31:02.010 --> 00:31:07.429
+Mickaël Schoentgen: when we
+
+190
+00:31:07.670 --> 00:31:11.279
+Mickaël Schoentgen: yeah, I like, maybe exactly that that stuff
+
+191
+00:31:11.530 --> 00:31:32.809
+Mickaël Schoentgen: is for my mother, and one of my brothers, and gardening is mostly my, my, my dad with my mother and my brothers. I I do it some from time to time. But I can't say that I am a specialist. I don't like it very much, but yes, everyone has a
+
+192
+00:31:32.910 --> 00:31:35.180
+Mickaël Schoentgen: define from
+
+193
+00:31:35.220 --> 00:31:38.360
+Mickaël Schoentgen: preferred. The?
+
+194
+00:31:39.380 --> 00:31:42.869
+Mickaël Schoentgen: So yeah. and about the animals.
+
+195
+00:31:44.390 --> 00:31:56.729
+Mickaël Schoentgen:  yeah, there are a lot of animals like, everywhere where we we we have a lot of gr snakes. They are gentle. So there is no issue with the kid.
+
+196
+00:31:56.940 --> 00:31:58.150
+Mickaël Schoentgen: But yeah.
+
+197
+00:31:58.340 --> 00:32:04.529
+Mickaël Schoentgen: I really like the nature. So that's perfect. We have a lot of frogs, even if a pool so
+
+198
+00:32:04.580 --> 00:32:06.370
+Mickaël Schoentgen: so cool ones.
+
+199
+00:32:08.210 --> 00:32:17.270
+Mickaël Schoentgen: and the in the in the birds, we have so many birds and beautiful birds, for instance, the one on the bottom right?
+
+200
+00:32:17.450 --> 00:32:20.309
+Mickaël Schoentgen: I think she's facing it in.
+
+201
+00:32:20.320 --> 00:32:39.680
+Mickaël Schoentgen: It's in French we call it you. It's not easy. And in the English it's called a right Eur. So yeah, it's a beautiful bird. And he comes from time to time like in on my to us. So that's insane.
+
+202
+00:32:39.870 --> 00:32:52.889
+Mickaël Schoentgen: But yeah, we have a lot of birds, a lot of insect, and so on. So yeah, when it sure is present. And we need to. We try to control it because it's green everywhere, even in the world. So he need to clean up a on regular basis.
+
+203
+00:32:55.400 --> 00:33:16.320
+Mickaël Schoentgen:  yeah, and the end the whole thing was, if you want to buy your whole village, they are a real village that are for sale as of now, and the prices come from the 300 k. To 23 million of heroes. So yeah, it depends
+
+204
+00:33:16.350 --> 00:33:20.139
+Mickaël Schoentgen: on your your wallet if I say
+
+205
+00:33:20.300 --> 00:33:29.640
+Mickaël Schoentgen: but yes, in France, and I saw, even in the States, in a Spanish Portugal you are sometimes, from time to time, villages to to buy. So
+
+206
+00:33:30.050 --> 00:33:38.000
+Mickaël Schoentgen: if you want, it may be a lot more work than just a 5 houses so deeply partied.
+
+207
+00:33:39.370 --> 00:33:51.530
+Mickaël Schoentgen: what you have next. And if you have questions. don't these dates? I hope that I hope it was clear enough. I can say more if you want.
+
+208
+00:33:54.920 --> 00:34:01.350
+Ben Matthes: Well, it was just wonderful. That was absolutely fascinating. Yeah, absolutely.
+
+209
+00:34:04.050 --> 00:34:11.150
+Ben Matthes: Thank you. So if if when a issue pass, you come by you, I don't hesitate on, it's open. We are
+
+210
+00:34:11.409 --> 00:34:19.470
+Mickaël Schoentgen: place for you, of course. So yeah. the door is always open for a so you can go. Come when you want.
+
+211
+00:34:19.639 --> 00:34:39.040
+Mickaël Schoentgen: Now we know when the next of cloud gathering will happen. You can say it. You absolutely say it. Alright. Let me think about that. I do have a company, a reference number so that it can be built. But that's at the same time that you can. Yeah.
+
+212
+00:34:39.730 --> 00:34:43.069
+Pierre-Gildas: how far is the effort for our us friends?
+
+213
+00:34:43.850 --> 00:34:45.460
+Frantz FISCHER: Yeah, yeah.
+
+214
+00:34:46.679 --> 00:34:50.309
+Mickaël Schoentgen: yeah. The Indian team is welcome to. Of course.
+
+215
+00:34:52.820 --> 00:35:03.319
+Ben Matthes: I think you probably need to fly through Paris right the be. It'll be so. Yeah, it's quite a challenge to come here so It's possible. But you need to be provide to.
+
