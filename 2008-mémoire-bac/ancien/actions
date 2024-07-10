@@ -1,0 +1,102 @@
+#!/bin/bash
+
+#######################################################################
+# Script réalisé par Tiger-222
+# le 16 Mai 2008
+# révisé le 
+# Actions réalisées :
+#	- MAJ du système
+#	- rapport rkhunter
+#	- résultat de "find / -nouser -o -nogroup"
+#	- résultat de la sauvegarde
+#	- IP publique su serveur
+#	- envoi d'un courriel contenant le résumé des actions ci-dessus
+
+#######################################################################
+### Création du fichier compte-rendu :
+# fichier sous la forme compte-rendu_annee-mois-jour-heure-minute
+date=`date +%F-%k-%M`
+	# %F : année-moi-jour
+	# %k : heure
+	# %M : minute
+nom="compte-rendu_"
+fichier=$nom$date
+touch $fichier
+
+clear
+echo ""
+
+#######################################################################
+### MAJ du système :
+echo "Mises à jours des dépôts..."
+echo "--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+echo "Mises à jours des dépôts : \n" >> $fichier
+apt-get update >> $fichier
+
+echo ""
+echo "Mise à jour du système..."
+echo "\n\n --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---" >> $fichier
+echo "Mise à jour du système : \n" >> $fichier
+apt-get upgrade -y >> $fichier
+echo ""
+
+#######################################################################
+### rkhunter :
+echo "\n\n--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+#vérification de la version de rkhunter :
+if rkhunter -V | grep "1.3.0" || rkhunter -V | grep "1.3.2" 
+	then 
+		echo "Mise à jour de rkhunter..." 
+		echo "Mise à jour de la base de données des fichiers : \n" >> $fichier
+		rkhunter --propupd >> $fichier
+			# --propupd : mise à jour de la base de données des fichiers
+		
+		echo "\n\n--- --- --- --- --- --- --- --- --- --- --- --- --- --- ---" >> $fichier
+		echo "Mise à jour de rkhunter : \n" >> $fichier
+		rkhunter --update --nocolors >> $fichier
+		
+		echo "Lancement de rkhunter..."
+		echo "\n\n--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+		echo "Lancement de rkhunter : \n" >> $fichier
+		rkhunter -c --rwo --sk --nocolors >> $fichier ;
+			# -c : vérifier le système entier
+			# --rwo (report-warnings-only) : n'afficher que les erreurs ou alertes
+			# --sk (skip-keypress) : ne pas attendre d'intervention de la part de l'utilisateur
+			# --nocolors : ne pas mettre de couleurs (pour facilité la lecture en mode texte)
+	else
+		# pour les versions antérieures à 1.3.0 : 
+		echo "Mise à jour de rkhunter..." 
+		echo "\n\n--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+		echo "Mise à jour de rkhunter : \n" >> $fichier
+		rkhunter --propupd >> $fichier
+			# --propupd : mise à jour de la base de données des fichiers
+		rkhunter --update --nocolors >> $fichier
+		
+		echo "Lancement de rkhunter..."
+		echo "\n\n--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+		echo "Lancement de rkhunter : \n" >> $fichier
+		rkhunter -c --mode-report >> $fichier ;
+			# --mode-report : n'afficher que les erreurs ou alertes
+fi
+
+## vérification de la version :
+echo "\n\n--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+echo "Vérification de la version de rkhunter : \n" >> $fichier
+rkhunter --versioncheck --nocolors >> $fichier
+echo ""
+
+#######################################################################
+### Commande find avec syntaxe spéciale :
+# Il s'agit d'un test sur tout le système afin de voir s'il y a des fichiers
+# qui n'appatiennent à aucun groupe ni utilisateur; ce qui n'est pas faisable
+# sous GNU/Linux. S'il y en a, ils peuvent être une indication qu’un cracker
+# est rentré sur la machine ou que quelquechose est mal configuré.
+echo "\n\n--- --- --- --- --- ------ --- --- --- --- --- --- --- ---" >> $fichier
+echo "Résultat de la commande 'find / -nouser -o -nogroup' : \n" >> $fichier
+find / -nouser -o -nogroup >> $fichier
+	# -nouser : qui n'appartient à aucun utilisateur
+	# -o -nogroup : qui n'appartient à aucun groupe
+echo ""
+
+#######################################################################
+### Savegarde des fichiers :

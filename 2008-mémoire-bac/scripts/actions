@@ -1,0 +1,550 @@
+#!/bin/bash
+
+#######################################################################
+# Script réalisé par Tiger-222
+# le 16 Mai 2008
+# révisé le 22 Mai 2008
+# Actions réalisées :
+#	- sauvegarde des fichiers de configuration primaire
+#	- MAJ du système
+#	- vérification du système avec rkhunter
+#	- recherche de programmes sans propriétaire
+#	- sauvegarde des données importantes
+#	- IP publique su serveur
+#	- envoi d'un courriel contenant le résumé des actions ci-dessus
+###
+# Les commandes utilisées nécessitent les droits root, ajouter ces 
+# lignes dans /etc/sudoers :
+#	- %user% ALL = NOPASSWD: /usr/bin/rkhunter
+#	- %user% ALL = NOPASSWD: /usr/bin/mysqldump
+#	- %user% ALL = NOPASSWD: /usr/bin/mysql
+#	- %user% ALL = NOPASSWD: /usr/bin/crontab
+#	- %user% ALL = NOPASSWD: /bin/apt-get
+#	- %user% ALL = NOPASSWD: /bin/find
+#	- %user% ALL = NOPASSWD: /bin/touch
+#	- %user% ALL = NOPASSWD: /bin/bash
+#	- %user% ALL = NOPASSWD: /bin/cp
+#	- %user% ALL = NOPASSWD: /bin/mkdir
+#	- %user% ALL = NOPASSWD: /bin/chmod
+#	- %user% ALL = NOPASSWD: /bin/tar
+#	- %user% ALL = NOPASSWD: /bin/gzip
+#	- %user% ALL = NOPASSWD: /bin/mv
+#	- %user% ALL = NOPASSWD: /bin/rm
+#	- %user% ALL = NOPASSWD: /bin/echo
+#	- %user% ALL = NOPASSWD: /usr/sbin/usermod
+# Et installer 'sudo' :
+#	- sudo apt-get install sudo
+###
+# Ce scipt doit être lancé tous les jours à 21h.
+# Pour ce faire, il faut (être en root) :
+#	- ajouter l'utilisateur au groupe crontab : 
+#		sudo usermod -G crontab %user%
+#	- lancer le script tous les jours à 21h :
+#		sudo nano /etc/crontab
+#	- et y ajouter cette ligne :
+#		0 21 * * * %user% /chemin/actions
+###
+# Le programme rkhunter doit être installé (être en root) :
+#	- wget http://downloads.sourceforge.net/rkhunter/rkhunter-1.3.2.tar.gz
+#	- tar xzf rkhunter-1.3.2.tar.gz
+#	- cd rkhunter-1.3.2
+#	- sudo sh installer.sh --layout /usr --install
+#	- cd ..
+#	- sudo rm -fr rkhunter-1.3.2*
+#######################################################################
+
+#######################################################################
+### Définition des variables :
+localisation="/usr/maint"					# localisation des scripts
+date=`date +%F`							# définition de la date
+fichier="compte-rendu_$date"			# fichier log
+
+tmp="fichiers"							# dossier temporaire
+log="log"								# dossier contenant les fichiers log
+archive="archives"						# dossier contenant les archives
+
+id_mysql="root"							# identifiant MySQL
+mdp_mysql="l0rr@ine"					# mot de passe MySQL
+base_mysql="fiches"						# nom de la base de données MySQL
+env_mysql="localhost"					# nom de domaine MySQL
+
+emetteur="joe.la.frite@homelinux.org"	# émetteur du courriel
+recepteur="tiger-222@wanadoo.fr"		# récepteur du courriel
+sujet="Maintenance du serveur."			# sujet du courriel
+
+erreur=0								# variable d'erreur
+
+rouge="\033[31;06m"						# rouge
+vert="\033[32;06m"						# vert
+brun="\033[33;06m"						# brun
+bleu="\033[34;06m"						# bleu
+violet="\033[35;06m"					# violet
+magenta="\033[36;06m"					# magenta
+gris="\033[37;06m"						# gris
+noir="\033[0m"							# noir
+#######################################################################
+
+clear
+
+#######################################################################
+### Aller au bon endroit :
+if [ ! pwd = $localisation ]
+	then 
+		cd $localisation
+fi
+
+#######################################################################
+### Création du fichier log et des entêtes :
+touch $fichier
+echo ""
+echo "==================================================" > $fichier
+echo "	  Compte-rendu du $date" >> $fichier
+echo "==================================================" >> $fichier
+echo -e "$vert=================================================="
+echo "	     Script de maintenance"
+echo -e "================================================== $noir"
+echo ""
+
+#######################################################################
+### Fonction qui donne le code de sortie :
+sortie () {
+	code=$?
+	if [ $code != "0" ]
+		then
+			erreur=$(($erreur + 1)) # incrémentation de 1
+			echo "Erreur" >> $fichier
+			echo -e "$rouge Erreur $noir"
+	else
+		echo "Ok" >> $fichier
+		echo -e "$vert Ok $noir"
+	fi
+}
+#######################################################################
+
+#######################################################################
+# Tous les dossier nécessaires sont-ils présents ?
+echo -e "\n------------" >> $fichier
+echo "Création des dossiers..." >> $fichier
+echo "Création des dossiers..."
+echo -n " Création de $tmp :" >> $fichier
+	echo -n " Création de $tmp :"
+	if [ ! -e $tmp ]
+		then
+			sudo mkdir $tmp
+			sortie
+		else
+			echo -e "$bleu Existant $noir" 
+			echo "Existant"  >> $fichier
+	fi
+echo -n " Création de $log :" >> $fichier
+	echo -n " Création de $log :"
+	if [ ! -e $log ]
+		then
+			sudo mkdir $log
+			sortie
+		else
+			echo -e "$bleu Existant $noir"  
+			echo "Existant"  >> $fichier
+	fi
+echo -n " Création de $archive :" >> $fichier
+	echo -n " Création de $archive :"
+	if [ ! -e $archive ]
+		then
+			sudo mkdir $archive
+			sortie
+		else
+			echo -e "$bleu Existant $noir"  
+			echo "Existant"  >> $fichier
+	fi
+echo ""
+
+#######################################################################
+### Sauvegarde des fichiers de configuration primaire :
+# Vérification de la présence de config.tar
+# Cette archive contient les fichiers de configuration du serveur
+# qui seront utiles en cas de réinstallation de celui-ci.
+#	- /boot/grub/menu.lst (menu Grub)
+#	- /etc/apt/sources.list (liste des dépôts)
+#	- /etc/sysctl.conf (sécurisation de la couche TCP/IP)
+#	- /etc/network/interfaces (configuration du réseau)
+#	- /etc/apache2/sites-available/default (config du serveur Web)
+#	- /root/.bashrc (couleurs du prompt)
+#	- /home/%user%/.bashrc (couleurs du prompt)
+#	- /etc/crontab (gestionnaire de tâches)
+#	- /etc/sudoers (fichier gérant les autorisations avec 'sudo')
+#	- sendEmail (script pour l'envoi du courriel)
+#	- actions (ce script)
+echo -e "\n\n------------" >> $fichier
+echo -e "Copie des fichiers de configuration..." >> $fichier
+echo "Copie des fichiers de configuration..."
+# création du dossier config :
+echo -n " Création du dossier :" >> $fichier
+	echo -n " Création du dossier :"
+	sudo mkdir config >> $fichier
+	sortie
+# copie des fichiers :
+echo -n " Copie de menu.lst :" >> $fichier
+	echo -n " Copie de menu.lst :"
+	sudo cp /boot/grub/menu.lst config/ >> $fichier
+	sortie
+echo -n " Copie de sources.list :" >> $fichier
+	echo -n " Copie de sources.list :"
+	sudo cp /etc/apt/sources.list config/ >> $fichier
+	sortie
+echo -n " Copie de sysctl.conf :" >> $fichier
+	echo -n " Copie de sysctl.conf :"
+	sudo cp /etc/sysctl.conf config/ >> $fichier
+	sortie
+echo -n " Copie de interfaces :" >> $fichier
+	echo -n " Copie de interfaces :"
+	sudo cp /etc/network/interfaces config/ >> $fichier
+	sortie
+echo -n " Copie de default :" >> $fichier
+	echo -n " Copie de default :"
+	sudo cp /etc/apache2/sites-available/default config/ >> $fichier
+	sortie
+echo -n " Copie de bashrc (root) :" >> $fichier
+	echo -n " Copie de bashrc (root) :"
+	sudo cp /root/.bashrc config/ >> $fichier
+	sortie
+echo -n " Copie de bashrc :" >> $fichier
+	echo -n " Copie de bashrc :"
+	sudo cp /home/tiger-222/.bashrc config/ >> $fichier
+	sortie
+echo -n " Copie de sudoers :" >> $fichier
+	echo -n " Copie de sudoers :"
+	sudo cp /etc/sudoers config/ >> $fichier
+	sortie
+echo -n " Copie de crontab :" >> $fichier
+	echo -n " Copie de crontab :"
+	sudo cp /etc/crontab config/ >> $fichier
+	sortie
+echo -n " Copie de sendEmail :" >> $fichier
+	echo -n " Copie de sendEmail :"
+	sudo cp sendEmail config/ >> $fichier
+	sortie
+echo -n " Copie de actions :" >> $fichier
+	echo -n " Copie de actions :"
+	sudo cp actions config/ >> $fichier
+	sortie
+echo -n " Création de l'archive :" >> $fichier
+	echo -n " Création de l'archive :"
+	sudo tar cf config.tar config/* >> $fichier
+	sortie
+echo -n " Suppression du répertoire :" >> $fichier
+	echo -n " Suppression du répertoire :"
+	sudo rm -r config
+	sortie
+echo -n " Déplacement de l'archive :" >> $fichier
+	echo -n " Déplacement de l'archive :"
+	sudo mv config.tar $archive/
+	sortie
+
+#######################################################################
+### MAJ du système :
+echo ""
+echo "Mise à jour..."
+echo -n " ...des dépôts :"
+echo -e "\n\n------------" >> $fichier
+echo -e "Mise à jour des dépôts : \n" >> $fichier
+sudo apt-get update >> $fichier
+sortie
+
+echo -n " ... du système :"
+echo -e "\n\n------------" >> $fichier
+echo -e "Mise à jour du système : \n" >> $fichier
+sudo apt-get upgrade -y >> $fichier
+sortie
+
+#######################################################################
+### rkhunter :
+# vérification de la version de rkhunter :
+echo -e "\n\n------------" >> $fichier
+echo ""
+echo "Vérification de la version de rkhunter..."
+
+# vide le fichier log de rkhunter :
+sudo echo "" > rkhunter.log
+
+ver_actuelle=`sudo rkhunter -V --nocolors |grep Hunter -m 1 |tr -d "Rootkit Hunter " |tr -d "."`
+ver_dispo=`sudo rkhunter --versioncheck --nocolors |grep Latest |tr -d "Latest version: " |tr -d "."`
+
+if [ $ver_actuelle -lt $ver_dispo ] # si la version actuelle est inférieure à celle disponible
+	then 
+		## vérification de la version :
+		echo -e "\n\n------------" >> $fichier
+		echo -e "Vérification de la version de rkhunter : \n" >> $fichier
+		sudo rkhunter --versioncheck --nocolors -l rkhunter.log >> $fichier
+	else 
+		echo -n " Mise à jour de rkhunter :" 
+		echo -e "Mise à jour de la base de données des fichiers : \n" >> $fichier
+		sudo rkhunter --propupd -l rkhunter.log >> $fichier
+			# --propupd : mise à jour de la base de données des fichiers
+			# -l : spécifier un journal log
+		sortie
+			
+		echo -e "\n\n------------" >> $fichier
+		echo -e "Mise à jour de rkhunter : \n" >> $fichier
+		sudo rkhunter --update --nocolors -l rkhunter.log >> $fichier
+		
+		echo " Lancement de rkhunter..."
+		echo -e "\n\n------------" >> $fichier
+		echo -e " Lancement de rkhunter : \n" >> $fichier
+		sudo rkhunter -c --rwo --sk --nocolors -l rkhunter.log >> $fichier
+			# -c : vérifier le système entier
+			# --rwo (report-warnings-only) : n'afficher que les erreurs ou alertes
+			# --sk (skip-keypress) : ne pas attendre d'intervention de la part de l'utilisateur
+			# --nocolors : ne pas mettre de couleurs (pour facilité la lecture en mode texte)
+fi
+
+#######################################################################
+### Commande find avec syntaxe spéciale :
+# Il s'agit d'un test sur tout le système afin de voir s'il y a des fichiers
+# qui n'appatiennent à aucun groupe ni utilisateur; ce qui n'est pas faisable
+# sous GNU/Linux. S'il y en a, ils peuvent être une indication qu’une 
+# personne non autorisée est rentrée sur la machine ou que quelquechose 
+# est mal configuré.
+echo -e "\n\n------------" >> $fichier
+echo -e " Recherche de fichiers sans propriétaire..." >> $fichier
+echo ""
+echo -n "Recherche de fichiers sans propriétaire..."
+sudo find / -ignore_readdir_race -nouser -o -nogroup >> $fichier
+	# -ignore_readdir_race : ne pas afficher de message en cas d'erreur
+	# -mount : ignorer les autres systèmes de fichier montés (FAT32, NTFS, et caetera)
+	# -nouser : qui n'appartient à aucun utilisateur
+	# -o -nogroup : qui n'appartient à aucun groupe
+
+#######################################################################
+### Savegarde des fichiers :
+# Dossiers à sauvegarder :
+#	- /var/www
+#	- /home
+#	- /opt
+#	- /var/log
+#	- /var/mail
+#	- /var/spool
+#	- /usr/local
+#	- base de données MySQL
+echo -e "\n\n------------" >> $fichier
+echo ""
+echo -e "Sauvegarde... \n" >> $fichier
+echo -e "\nSauvegarde..."
+	### Sauvegarde du site :
+	echo " ...du dossier /var/www..." >> $fichier
+	echo " ...du dossier /var/www..."
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf site_du_$date.tar /var/www/* >> $fichier
+				# -c : créer l'archive
+				# -f : nom de l'archive
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best site_du_$date.tar >> $fichier
+				# -r : compression récursive
+				# -f : forcer la compression
+				# --best : niveau de compression, ici le meilleur
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv site_du_$date.tar.gz $tmp/
+			sortie
+	### Sauvegarde du répertoire personnel :
+	echo ""
+	echo -e "\n ...du dossier /home..." >> $fichier
+	echo " ...du dossier /home..."
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf home_du_$date.tar /home/* /home/.* -X exclusions >> $fichier
+				# -X exclusions : exclure les fichiers se trouvant dans
+				#				  dans le fichier exlusions.
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best home_du_$date.tar >> $fichier
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv home_du_$date.tar.gz $tmp/
+			sortie
+	### Sauvegarde de /opt, s'il n'est pas vide :
+	if [ ! `ls -a /opt/ | sed -e "/\.$/d" | wc -l` -eq 0 ]
+		then
+			echo ""
+			echo -e "\n ...du dossier /opt..." >> $fichier
+			echo " ...du dossier /opt..."
+				echo -n "	compression 1/2 :" >> $fichier
+				echo -n "	compression 1/2 :"
+					sudo tar cf opt_du_$date.tar /opt/* /opt/.* -X exclusions >> $fichier
+					sortie
+				echo -n "	compression 2/2 :" >> $fichier
+				echo -n "	compression 2/2 :"
+					sudo gzip -rf --best opt_du_$date.tar >> $fichier
+					sortie
+				echo -n "	déplacement : " >> $fichier
+				echo -n "	déplacement : "
+					sudo mv opt_du_$date.tar.gz $tmp/
+					sortie
+	fi
+	### Sauvegarde de /var/log :
+	echo ""
+	echo -e "\n ...du dossier /var/log..." >> $fichier
+	echo " ...du dossier /var/log..."
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf log_du_$date.tar /var/log/* >> $fichier
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best log_du_$date.tar >> $fichier
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv log_du_$date.tar.gz $tmp/
+			sortie
+	### Sauvegarde de /var/mail :
+	echo ""
+	echo -e "\n ...du dossier /var/mail..." >> $fichier
+	echo " ...du dossier /var/mail..."
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf mail_du_$date.tar /var/mail/* >> $fichier
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best mail_du_$date.tar >> $fichier
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv mail_du_$date.tar.gz $tmp/
+			sortie
+	### Sauvegarde de /var/spool :
+	echo ""
+	echo -e "\n ...du dossier /var/spool..." >> $fichier
+	echo " ...du dossier /var/spool..."
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf spool_du_$date.tar /var/spool/* -X exclusions >> $fichier
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best spool_du_$date.tar >> $fichier
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv spool_du_$date.tar.gz $tmp/
+			sortie
+	### Sauvegarde de /usr/local :
+	echo ""
+	echo -e "\n ...du dossier /usr/local..." >> $fichier
+	echo " ...du dossier /usr/local..."
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf local_du_$date.tar /usr/local/* /usr/local/.* -X exclusions >> $fichier
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best local_du_$date.tar >> $fichier
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv local_du_$date.tar.gz $tmp/
+			sortie
+	### Sauvegarde de la base de données :
+	echo ""
+	echo -e "\n ...de la base de données..." >> $fichier
+	echo " ...de la base de données..."
+		echo -n "	export :" >> $fichier
+		echo -n "	export :"
+			sudo mysqldump -u $id_mysql -p$mdp_mysql --opt $base_mysql -h $env_mysql > bdd.sql
+				# L'option --opt est un raccourci permettant d'effectuer un
+				# dump en sauvegardant toutes les tables de la base, en 
+				# vérouillant les tables, en ajoutant les ordres de création
+				# de tables et en utilisant des insertions complètes.
+			# Pour l'injection (remise en place) des données :
+			#	sudo mysql -u $id_mysql -p$mdp_mysql -h $env_mysql -D $base_mysql < bdd.sql
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv bdd.sql $tmp/
+			sortie
+	### Création de l'archive finale :
+	echo ""
+	echo -e "\nCréation de l'archive finale : " >> $fichier
+	echo "Création de l'archive finale : "
+		echo -n "	compression 1/2 :" >> $fichier
+		echo -n "	compression 1/2 :"
+			sudo tar cf $date.tar $tmp/* $archive/config.tar >> $fichier
+			sortie
+		echo -n "	compression 2/2 :" >> $fichier
+		echo -n "	compression 2/2 :"
+			sudo gzip -rf --best $date.tar >> $fichier
+			sortie
+		echo -n "	suppression des tmp :" >> $fichier
+		echo -n "	suppression des tmp :"
+			sudo rm $tmp/*
+			sortie
+		echo -n "	déplacement :" >> $fichier
+		echo -n "	déplacement :"
+			sudo mv $date.tar.gz $archive/
+			sortie
+		
+#######################################################################
+### Prise de connaissance de l'IP publique :
+# Il faut le paquet libwww-perl.
+echo -n -e "\n------------" >> $fichier
+GET www.monip.org |grep "IP" |cut -f4 -d">" |tr -d "<br" >> $fichier
+GET www.monip.org |grep "IP" |cut -f4 -d">" |tr -d "<br"
+	# www.monip.com : site qui donne l'IP publique
+	# grep "IP" : recherche du groupe "IP"
+	# cut -f4 -d">" : isoler ce qu'il y a avant l'IP 
+	# tr -d "<BR" : isoler ce qu'il y a après l'IP
+
+#######################################################################
+### Envoi du courriel :
+# Le script utilisé est sendEmail v1.55 créé par Brandon Zhem :
+# http://caspian.dotconf.net/menu/Software/SendEmail/
+# Adapté par Tiger-222.
+# Il faut installer PostFix :
+#	- apt-get install postfix
+echo ""
+echo -n "Envoi du courriel :"
+sudo ./sendEmail -f $emetteur -t $recepteur -u $sujet -o message-file=$fichier -a rkhunter.log -q
+	# -f : adresse courriel de l'émetteur
+	# -t : adresse courriel du destinataire
+	# -u : sujet du courriel
+	# -m : contenu du message 'direct'
+	# -o message-file : le contenu du fichier sera le corps du message
+	# -a : pièce jointe
+	# -q : ne pas afficher de message de sortie
+echo -e "\n------------" >> $fichier
+echo -n "Envoi du courriel :" >> $fichier
+sortie
+
+#######################################################################
+### déplacement du compte-rendu dans le dossier log :
+sudo mv $fichier $log/
+
+#######################################################################
+### Y a-t-il eu des erreurs :
+clear
+echo ""
+echo ""
+if [ $erreur = 0 ]
+	then
+		echo -e "$vert		*** Le script s'est terminé sans erreur *** $noir"
+		echo ""
+		exit 0
+else
+	if [ $erreur = 1 ]
+		then
+			echo -e "$rouge		! Le script s'est terminé avec une erreur ! $noir"
+		echo ""
+			exit 2
+	else
+		echo -e "$rouge		!!! Le script s'est terminé avec $erreur erreurs !!! $noir"
+		echo ""
+		exit 3
+	fi
+fi
+
